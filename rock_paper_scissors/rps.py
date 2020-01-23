@@ -13,23 +13,24 @@ import sys
 
 
 def rock_paper_scissors(n):
-    poss = [['rock'], ['paper'], ['scissors']]
     if n == 0:
-        return []
+        # could onl know this when looking at the test file...apparently thats ok
+        return [[]]
     elif n == 1:
-        return poss
-    elif n >= 2:
-        nl = []
-        for i in range(len(poss)):
-            x = poss[i]
-            xs = poss[:i] + poss[i+1]
-            for p in rock_paper_scissors(xs):
-                nl.append(p+[x])
-        return nl
+        return [['rock'], ['paper'], ['scissors']]
+    else:
+        # this makes it recursive as 'adding' is what is being repeated until it gets to 1 or 0 the it returns those values then ends
+        adding = rock_paper_scissors(n-1)
+        nl = []  # sets up a list to enter new info that's being repeated
+        # this loops through the i(index of each version of fn being returned?)
+        for i in adding:
+            # this adds the new value of i into the front of each list
+            nl += [i+['rock'], i+['paper'], i+['scissors']]
+
+        return nl  # finally returns the new list after doing the recursion
 
 
-#             return [p] + ['rock'], [p]+['paper'], [p]+['scissors']
-print(rock_paper_scissors(2))
+print(rock_paper_scissors(3))
 
 # if __name__ == "__main__":
 #   if len(sys.argv) > 1:
