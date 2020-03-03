@@ -18,10 +18,11 @@ def find_max_profit(prices):
     # maybe we loose money on best case.. starting with lowest possibe int
     max_profit = float("-inf")
     for i in range(len(prices)):
-        if min_price > prices[i]:
+        if min_price > prices[i]:  # during loop sets the new minimum
             min_price = prices[i]
 
             for p in range(i+1, len(prices)):  # max has to come after min price
+                # does the profit math then compares with each index after returning the biggest
                 current_profit = prices[p] - prices[i]
                 if max_profit < current_profit:
                     max_profit = current_profit
