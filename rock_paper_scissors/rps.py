@@ -7,13 +7,16 @@ def rock_paper_scissors(n):
     options = [['rock'], ['paper'], ['scissors']]
     plays = []
     if n <= 0:
-        return "no players"
+        return [[]]
     elif n == 1:
         return options
     else:
-        for i in options:
-            plays = i+['rock'], i+['paper'], i+['scissors']
-    return plays
+        # this sets up the recursion... goes by one less each time giving all the versions
+        compile = rock_paper_scissors(n-1)
+        for i in compile:
+            plays += i+['rock'], i+['paper'], i+['scissors']
+
+        return plays
 
 
 if __name__ == "__main__":
