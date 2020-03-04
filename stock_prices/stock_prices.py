@@ -3,8 +3,6 @@
 import argparse
 
 # prices is  list of stock prices as integers
-# prices = [1050, 270, 1540, 3800, 2]
-# alt_prices = [15, 2, 10, 56, 22, 75, 1, 19]
 # can run test by add space between the numbers after python3 stock_prices.py in the terminal
 
 # setup so need to have a smallest that comes before the largest the smallest price is the purchase price and the largest is the sale price.
